@@ -1,0 +1,6 @@
+{
+  "name": "Guia Ilustrado: Exercícios para o Ronco",
+  "description": "Página de vendas oficial do Guia Ilustrado de Exercícios para o Ronco com demonstrações visuais, rotina de 7 dias, checklist noturno e materiais bônus.",
+  "permissions": [],
+  "capabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

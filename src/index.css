@@ -1,0 +1,236 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-white: #FFFFFF;
+    --color-blue-light: #DCEBFA;
+    --color-blue-medium: #2B4B70;
+    --color-blue-navy: #142B4A;
+    --color-blue-dark: #080F1D;
+    --color-green-btn: #176447;
+    --color-gold-accent: #E9B95A;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    color: #142B4A;
+    background-color: #FFFFFF;
+    overflow-x: clip;
+  }
+
+  h1, h2, h3, h4, .font-heading {
+    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Custom dark green pill button style */
+.btn-pill-green {
+  background-color: #176447;
+  color: #FFFFFF;
+  font-weight: 800;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  box-shadow: 0 4px 14px 0 rgba(23, 100, 71, 0.35);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-pill-green:hover {
+  background-color: #114b35;
+  box-shadow: 0 6px 20px 0 rgba(23, 100, 71, 0.45);
+  transform: translateY(-2px);
+}
+
+.btn-pill-green:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px 0 rgba(23, 100, 71, 0.3);
+}
+
+/* Top Black Friday Continuous Marquee Ribbon */
+.bf-top-ribbon {
+  background-color: #050507;
+  border-top: 2px solid #DC2626;
+  border-bottom: 2px solid #DC2626;
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+.bf-marquee-viewport {
+  width: 100%;
+  height: 32px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+@keyframes bf-marquee-scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.bf-marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: bf-marquee-scroll 26s linear infinite;
+}
+
+.bf-marquee-group {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bf-marquee-track {
+    animation: none;
+    transform: none;
+    width: 100%;
+    justify-content: center;
+  }
+  .bf-marquee-duplicate {
+    display: none;
+  }
+}
+
+/* Offer Card Diagonal Black Friday Gift Ribbon */
+.bf-corner-ribbon-wrap {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: clamp(165px, 42vw, 230px);
+  height: clamp(165px, 42vw, 230px);
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.bf-corner-ribbon-under {
+  position: absolute;
+  top: clamp(14px, 3.8vw, 22px);
+  right: clamp(-74px, -16vw, -60px);
+  width: clamp(230px, 56vw, 310px);
+  height: clamp(24px, 5.2vw, 28px);
+  background: linear-gradient(180deg, #7F1D1D 0%, #450A0A 100%);
+  border-top: 1px solid #EF4444;
+  border-bottom: 1px solid #991B1B;
+  transform: rotate(24deg);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.32);
+  opacity: 0.92;
+}
+
+.bf-corner-ribbon-main {
+  position: absolute;
+  top: clamp(22px, 5.5vw, 34px);
+  right: clamp(-74px, -16vw, -60px);
+  width: clamp(250px, 62vw, 340px);
+  height: clamp(26px, 5.8vw, 32px);
+  background: linear-gradient(180deg, #27272A 0%, #09090B 52%, #18181B 100%);
+  border-top: 2px solid #DC2626;
+  border-bottom: 2px solid #DC2626;
+  transform: rotate(40deg);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.bf-corner-ribbon-text {
+  color: #FFFFFF;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: clamp(8.5px, 2vw, 10.5px);
+  line-height: 1;
+  white-space: nowrap;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.65);
+}
+
+/* Folded ribbon ends on card boundary */
+.bf-corner-ribbon-fold-top,
+.bf-corner-ribbon-fold-right {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #7F1D1D;
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.5);
+}
+
+.bf-corner-ribbon-fold-top {
+  top: 0;
+  left: clamp(24px, 6vw, 40px);
+  clip-path: polygon(0 0, 100% 0, 100% 100%);
+}
+
+.bf-corner-ribbon-fold-right {
+  bottom: clamp(26px, 6.5vw, 42px);
+  right: 0;
+  clip-path: polygon(0 0, 100% 0, 100% 100%);
+}
+
+/* Intense blue pulsing glow effect for offer box */
+@keyframes offer-border-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 2px #2563EB, 0 10px 30px -5px rgba(37, 99, 235, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 0 5px #3B82F6, 0 15px 40px -2px rgba(59, 130, 246, 0.55);
+  }
+}
+
+.offer-box-glow {
+  border: 2px solid #2563EB;
+  animation: offer-border-pulse 3s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .offer-box-glow {
+    animation: none;
+    box-shadow: 0 0 0 3px #2563EB, 0 10px 25px -5px rgba(37, 99, 235, 0.35);
+  }
+}
+
+/* Horizontal continuous gallery animation with reduced motion support */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 38s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+    transform: none;
+  }
+}
+
+/* Hand-drawn dark navy highlighter stroke with SVG data URI + multi-line clone break */
+.hand-drawn-highlight {
+  display: inline;
+  color: #FFFFFF;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  padding: 0.05em 0.42em 0.11em;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100% 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 48' preserveAspectRatio='none'%3E%3Cpath d='M2,28 C5,17 9,10 17,8 C42,6 68,8 96,6 C126,4 156,8 188,6 C206,5 220,7 228,11 C234,14 237,18 238,23 C235,32 230,39 221,41 C195,43 166,40 136,42 C104,44 72,40 42,42 C25,43 12,41 6,36 C2,33 1,30 2,28 Z' fill='%23142B4A'/%3E%3Cpath d='M6,23 C11,13 18,9 29,9 C60,7 94,10 128,8 C162,6 196,9 222,10 C229,11 234,16 235,24 C232,33 226,38 215,39 C182,41 146,38 112,40 C78,42 46,39 18,40 C10,40 5,34 6,23 Z' fill='%23142B4A' opacity='0.92'/%3E%3C/svg%3E");
+}
