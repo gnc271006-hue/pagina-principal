@@ -26,21 +26,9 @@ export const OfferSection: React.FC = () => {
           Acesse imediatamente todo o kit digital e inclua novas práticas conscientes na sua rotina noturna.
         </p>
 
-        {/* Offer Box with intense blue pulsing border + Diagonal Black Friday Gift Ribbon */}
-        <div className="bg-white text-[#142B4A] rounded-3xl pt-20 px-6 pb-7 sm:pt-16 sm:px-10 sm:pb-10 shadow-2xl offer-box-glow relative overflow-hidden flex flex-col items-center text-center">
-          {/* Diagonal Physical Black Friday Gift Ribbon (Top-Right Corner) */}
-          <div className="bf-corner-ribbon-wrap" aria-hidden="true">
-            <div className="bf-corner-ribbon-fold-top" />
-            <div className="bf-corner-ribbon-fold-right" />
-            <div className="bf-corner-ribbon-under" />
-            <div className="bf-corner-ribbon-main">
-              <span className="bf-corner-ribbon-text">
-                BLACK FRIDAY · BLACK FRIDAY · BLACK FRIDAY · BLACK FRIDAY
-              </span>
-            </div>
-          </div>
-
-          {/* 1. Imagem do Produto (Menor, bem dimensionada, proporcional, livre da fita) */}
+        {/* Offer Box with intense blue pulsing border */}
+        <div className="bg-white text-[#142B4A] rounded-3xl p-6 sm:p-10 shadow-2xl offer-box-glow relative overflow-hidden flex flex-col items-center text-center">
+          {/* 1. Imagem do Produto */}
           <div className="w-full max-w-[200px] sm:max-w-[240px] mb-6 flex justify-center">
             <div className="rounded-2xl p-2 bg-slate-50 border border-slate-200/90 shadow-xs overflow-hidden flex items-center justify-center">
               <img
