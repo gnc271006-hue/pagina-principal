@@ -1,8 +1,7 @@
-const BASE_CHECKOUT_URL = 'https://pay.hotmart.com/S108174058B?checkoutMode=10';
+const BASE_CHECKOUT_URL = 'https://pay.kiwify.com.br/gQH5kev';
 
 /**
- * Returns the checkout URL preserving any UTM parameters and query string present in the page URL,
- * while maintaining the checkoutMode=10 parameter for order bumps.
+ * Returns the Kiwify checkout URL preserving any UTM parameters and query string present in the page URL.
  */
 export function getCheckoutUrl(): string {
   if (typeof window === 'undefined') return BASE_CHECKOUT_URL;
@@ -17,10 +16,6 @@ export function getCheckoutUrl(): string {
     currentParams.forEach((value, key) => {
       checkoutUrl.searchParams.set(key, value);
     });
-
-    if (!checkoutUrl.searchParams.has('checkoutMode')) {
-      checkoutUrl.searchParams.set('checkoutMode', '10');
-    }
 
     return checkoutUrl.toString();
   } catch (e) {
